@@ -1,10 +1,10 @@
 <div>
 
-<section class="h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+<section class="h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900" wire:keydown.shift.space.window.debounce.900ms='submitForm'>
 
 <div class="w-96 p-6 bg-white shadow-lg">
 
-<div class="">
+<div class="" >
 
     <h2 class="text-2xl font-semibold text-gray-900 text-center pb-2 dark:text-white">Contact us</h2>
 
@@ -25,19 +25,19 @@
     </div>
     @endif
 
-    <form wire:submit.prevent='submitForm' action="">
+    <form wire:submit='submitForm'>
         <div class="mb-5">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
           <input wire:model='form.email' type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" />
           @error('form.email')
-            <span class="text-red-500 text-xs">{{ $message }}</span>
+            <span class="text-red-500 text-sm">{{ $message }}</span>
           @enderror
         </div>
         <div class="mb-5">
           <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
           <input wire:model='form.subject' type="text" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
           @error('form.subject')
-            <span class="text-red-500 text-xs">{{ $message }}</span>
+            <span class="text-red-500 text-sm">{{ $message }}</span>
           @enderror
         </div>
 
@@ -45,7 +45,7 @@
             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
             <textarea wire:model='form.message' id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
             @error('form.message')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
+                <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
 

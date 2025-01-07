@@ -24,7 +24,7 @@ class MultipleFileUpload extends Component
 
     #[Rule('required')]
     #[Rule(['photos.*' => 'image|max:3096'])]
-    public $photos = '';
+    public $photos = [];
 
     public function createNewUserWithImage(){
 
@@ -32,16 +32,16 @@ class MultipleFileUpload extends Component
 
         if(is_array($this->photos)){
             foreach ($this->photos as $photo) {
-                dd($photo);
+                // dd($photo);
                 $photo->storeAs('images',$photo->getClientOriginalName(),'public');
             }
         }
 
-        User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-        ]);
+        // User::create([
+        //     'name' => $this->name,
+        //     'email' => $this->email,
+        //     'password' => Hash::make($this->password),
+        // ]);
 
         session()->flash('success','User created successfully');
 
