@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Calendar;
 use App\Livewire\HomePage;
 use App\Livewire\ContactUs;
 use App\Livewire\UsersPage;
@@ -13,3 +14,5 @@ Route::get('/users', UsersPage::class);
 Route::get('/contact-us',ContactUs::class);
 
 Route::get('/multiple-upload', MultipleFileUpload::class)->name('multiple.upload');
+
+Route::get('/calendar', Calendar::class)->name('calendar');
